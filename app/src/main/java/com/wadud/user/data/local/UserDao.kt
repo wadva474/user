@@ -13,8 +13,6 @@ interface UserDao {
     @Query("DELETE FROM userentity")
     suspend fun clearAllUser()
 
-    @Query(
-        """SELECT * FROM userentity WHERE LOWER(fullName) LIKE '%'|| LOWER(:query) || '%' """
-    )
+    @Query("""SELECT * FROM userentity WHERE LOWER(fullName) LIKE '%'|| LOWER(:query) || '%' """)
     suspend fun searchUser(query: String): List<UserEntity>
 }
