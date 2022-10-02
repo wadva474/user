@@ -2,7 +2,7 @@ package com.wadud.user.data.mapper
 
 import com.wadud.user.data.local.UserEntity
 import com.wadud.user.domain.model.User
-import com.wadud.user.domain.model.dto.UserDto
+import com.wadud.user.data.remote.api.dto.UserDto
 
 fun UserEntity.toUser(): User {
     return User(

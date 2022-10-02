@@ -1,6 +1,6 @@
 package com.wadud.user.data.remote.api
 
-import com.wadud.user.domain.model.dto.ResponseDto
+import com.wadud.user.data.remote.api.dto.ResponseDto
 import retrofit2.http.GET
 
 interface UserApiService {

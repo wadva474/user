@@ -1,4 +1,4 @@
-package com.wadud.user.domain.model.dto
+package com.wadud.user.data.remote.api.dto
 
 data class UserDto(
     val cell: String,
