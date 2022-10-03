@@ -63,7 +63,7 @@ fun UserListingScreen(
         ) {
             LazyColumn(modifier = Modifier.fillMaxSize()) {
                 items(state.users) { user ->
-                    Text(text = user.fullName)
+                    UserItemListing(user)
                 }
             }
 
