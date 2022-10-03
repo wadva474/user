@@ -15,7 +15,7 @@ fun UserDto.toUserEntity(): UserEntity {
     return UserEntity(
         fullName = name.title.plus(" ").plus(name.first).plus(" ").plus(name.last),
         email = email,
-        profileImage = picture.thumbnail,
+        profileImage = picture.large,
         address = "${location.street.number}".plus(",")
             .plus(location.street.name.plus(" ").plus(location.city)
                 .plus(" ").plus(location.state).plus(" ").plus(location.country)
