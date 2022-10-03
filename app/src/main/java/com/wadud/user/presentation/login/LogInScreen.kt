@@ -17,6 +17,7 @@ import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -31,13 +32,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.wadud.user.R
+import com.wadud.user.presentation.destinations.UserListingScreenDestination
 
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -45,7 +46,7 @@ import com.wadud.user.R
 @Destination
 @RootNavGraph(start = true)
 fun LogInScreen(
-    navigator : DestinationsNavigator,
+    navigator: DestinationsNavigator,
     viewModel: LoginViewModel = hiltViewModel()
 ) {
     val state = viewModel.state
@@ -90,9 +91,15 @@ fun LogInScreen(
             Text(text = stringResource(R.string.login))
         }
 
-       state.isEntryValid?.let {
-        TODO("Navigate to User screen")
-       }
+        LaunchedEffect(true) {
+            viewModel.validationEvents.collect { event ->
+                when (event) {
+                    is ValidationEvent.Success -> {
+                        navigator.navigate(UserListingScreenDestination())
+                    }
+                }
+            }
+        }
     }
 }
 

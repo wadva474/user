@@ -6,14 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.ramcosta.composedestinations.DestinationsNavHost
-import com.wadud.user.data.remote.api.dto.Login
-import com.wadud.user.presentation.login.LogInScreen
-import com.wadud.user.presentation.login.NavGraphs
+import com.wadud.user.presentation.NavGraphs
 import com.wadud.user.ui.theme.UserTheme
 import dagger.hilt.android.AndroidEntryPoint
 

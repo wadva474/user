@@ -30,6 +30,9 @@ class UserRepositoryImpl @Inject constructor(
             val isDbEmpty = localListing.isEmpty() && query.isBlank()
             val shouldLoadFromCache = !isDbEmpty && !fetchFromRemote
             if (shouldLoadFromCache) {
+                emit(Resource.Success(dao.searchUser(query).map {
+                    it.toUser()
+                }))
                 emit(Resource.Loading(false))
                 return@flow
             }
