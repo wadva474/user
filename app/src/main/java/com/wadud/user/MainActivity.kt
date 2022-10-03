@@ -10,6 +10,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.ramcosta.composedestinations.DestinationsNavHost
+import com.wadud.user.data.remote.api.dto.Login
+import com.wadud.user.presentation.login.LogInScreen
+import com.wadud.user.presentation.login.NavGraphs
 import com.wadud.user.ui.theme.UserTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,7 +27,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-
+                    DestinationsNavHost(navGraph = NavGraphs.root)
                 }
             }
         }

@@ -26,7 +26,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    private fun httpLoggingInterceptor(): HttpLoggingInterceptor {
+    fun httpLoggingInterceptor(): HttpLoggingInterceptor {
         val logLevel =
             if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         val loggingInterceptor = HttpLoggingInterceptor()
@@ -34,6 +34,8 @@ object AppModule {
         return loggingInterceptor
     }
 
+    @Singleton
+    @Provides
     fun provideGenericOkHttpClient(
         interceptor: HttpLoggingInterceptor
     ): OkHttpClient = OkHttpClient().newBuilder()
